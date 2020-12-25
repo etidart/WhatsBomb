@@ -40,16 +40,17 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			async function start() {
+				document.getElementById('timer').innerHTML = 10;
 				timeSec = 10;
 				timer = setInterval(function () {
-    				seconds = timeSec
-    				if (timeSec < 0) {
-        				eel.bomb(parseInt(document.getElementById('num').value), document.getElementById('text').value)
-        				clearInterval(timer);
-    				} else { 
-        				document.getElementById('timer').innerHTML = timeSec;
-    				}
-    				--timeSec; 
+					seconds = timeSec
+					if (timeSec < 0) {
+						eel.bomb(parseInt(document.getElementById('num').value), document.getElementById('text').value)
+						clearInterval(timer);
+					} else { 
+						document.getElementById('timer').innerHTML = timeSec;
+					}
+					--timeSec; 
 				}, 1000);
 			}
 
