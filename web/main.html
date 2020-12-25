@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WhatsBomb</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <script src="/eel.js"></script>
+    
+    <link rel="icon" type="image/png" href="/bomb.png">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="head">
+			<img src="bomb.png" alt="bomb" class="sitename" width="100">
+			<h1 class="sitename">WhatsBomb</h1>
+			<hr>
+		</div>
+
+		<div class="info">
+			<p>Эта программа позволяет отослать человеку в WhatsApp необходимое количество спам-сообщений. Перед началом необходимо запустить в браузере WhatsApp Web. Инструкции по запуску даются в интернете. После нажатия на кнопку, даётся десять секунд на нажатие в поле ввода сообщений.</p>
+		</div>
+
+		<div id="timer">10</div>
+
+		<div class="start">
+			Кол-во сообщений
+			<input type="number" id="num">
+			<br><br>
+			<div class="block1">
+				Что написать (программа пока не понимает русский язык) <input type="text" id="text">
+			</div>
+			<br>
+			<button id="start">СТАРТ!</button>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			async function start() {
+				timeSec = 10;
+				timer = setInterval(function () {
+    				seconds = timeSec
+    				if (timeSec < 0) {
+        				eel.bomb(parseInt(document.getElementById('num').value), document.getElementById('text').value)
+        				clearInterval(timer);
+    				} else { 
+        				document.getElementById('timer').innerHTML = timeSec;
+    				}
+    				--timeSec; 
+				}, 1000);
+			}
+
+			jQuery('#start').on('click', function() {
+				if (document.getElementById('num').value != '')
+					start();
+			});
+		</script>
+	</div>
+</body>
+</html>
