@@ -1,4 +1,5 @@
-import eel, pyautogui
+import eel
+import pyautogui
 
 eel.init("web")
 
